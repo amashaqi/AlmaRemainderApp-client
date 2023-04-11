@@ -52,10 +52,11 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 
-Setup Alma reminder Project environment:
+Setup Alma Reminder Project:
 
 1. Clone this project.
-2. Change the path in (./Android/local.properties) to your machine path.
+2. Change the path in (./AlmaReminder/Android/local.properties) to your machine path.
+3. For running locally change host IP address in (./AlmaReminder/src/services/services.js) to your IP address
 3. Type npm install.
 4. change the directory to ios and type pod install.
 5. run the project using npx react-native start and then (i) for ios and (a) for android
