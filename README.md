@@ -23,8 +23,9 @@ Features supported:
 * Users can edit on Medicine.
 * When refreshing the page medicines for a user will be brought.
 * Set default reminder to take medicine depending on the initial dose and times per day.
-* Set custom reminders for each pill user want to take per day, user
-
+* Set custom reminders for each pill user want to take per day.
+* Notification system notifies the user when it's time to take the medicine. 
+* Back Ground service lets the app run on background.
 
 ## Watch a demo for the Mobile Application
 
