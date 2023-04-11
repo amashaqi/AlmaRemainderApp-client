@@ -12,7 +12,7 @@ Features supported:
 
 * Sign up for a user using email, user name, and password.
 * Fields validation like email convention, empty fields, and password.
-* log in to the user account.
+* Log in to the user account.
 * Authentication System using JWT.
 * Storing token in asynchronous local storage.
 * Home screen contains patients' medicines.
@@ -57,7 +57,7 @@ Setup Alma Reminder Project:
 1. Clone this project.
 2. Change the path in (./AlmaReminder/Android/local.properties) to your machine path.
 3. For running locally change host IP address in (./AlmaReminder/src/services/services.js) to your IP address
-3. Type npm install.
-4. change the directory to ios and type pod install.
-5. run the project using npx react-native start and then (i) for ios and (a) for android
+3. Change the directory to AlmaRemainderApp-client Type npm install.
+4. Change the directory to ios and type pod install.
+5. Run the project using npx react-native start and then (i) for ios and (a) for android
 
