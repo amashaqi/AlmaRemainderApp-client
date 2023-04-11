@@ -32,7 +32,7 @@ Features supported:
 https://drive.google.com/file/d/1j9LeLvN7llAX2RXh6gDCp0VBAi8RQqzG/view?usp=share_link
 
 
-## Install Instructions
+## Install and running Instructions
 
 Setup react native environment:
 
