@@ -1,4 +1,4 @@
-export const host = 'http://192.168.1.8:3000/';
+export const host = 'http://192.168.1.10:3000/';
 export const authRoute = 'v1/patient/auth';
 export const addMedicineRoute = 'v1/patient/medicine/';
 export const deleteMedicineRoute = 'v1/patient/medicine/';

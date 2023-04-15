@@ -38,7 +38,11 @@ const Card = ({
       })
       .catch(error => {
         setIsSpinerOn(false);
-        alert(error.response.data.message);
+        if (error.toString().includes('Network Error')) {
+          alert('Network Error');
+        } else {
+          alert(error.response.data.message);
+        }
       });
   };
 

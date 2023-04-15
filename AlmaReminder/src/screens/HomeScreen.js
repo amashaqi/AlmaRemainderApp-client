@@ -8,7 +8,6 @@ import {
   Dimensions,
   RefreshControl,
   Platform,
-  View,
   Image,
   Alert,
 } from 'react-native';
@@ -28,11 +27,6 @@ const HomeScreen = ({navigation, route}) => {
   const [medicines, setMedicines] = useState([]);
   const [isSpinerOn, setIsSpinerOn] = useState(true);
   const [isRefreshing, setIsRefreshing] = useState(false);
-  const [initialDose, setInitialDose] = useState();
-  const [timesAday, setTimesAday] = useState();
-  const [medicineName, setMedicineName] = useState();
-  const [customReminders, setCustomReminders] = useState([]);
-  const [calculateTimeLeftValues, setCalculateTimeLeftValues] = useState([]);
   const [stopTimer, setStopTimer] = useState(false);
   const isFocused = useIsFocused();
 
@@ -48,7 +42,6 @@ const HomeScreen = ({navigation, route}) => {
   const calculateTimeLeftFromAsyncStorage = async () => {
     const values = await AsyncStorage.getItem('calculateTimeLetfValues');
     if (values) {
-      console.log('hhhhh');
       for (time of JSON.parse(values)) {
         calculateTimeLeft(
           time.initialDose,
@@ -110,7 +103,6 @@ const HomeScreen = ({navigation, route}) => {
   };
 
   const getAllMedicines = async () => {
-    console.log('sssss');
     const token = route.params.token;
     const options = {
       headers: {
@@ -162,10 +154,11 @@ const HomeScreen = ({navigation, route}) => {
       })
       .catch(async error => {
         setIsSpinerOn(false);
-        alert(error.response.data.message);
-        await AsyncStorage.removeItem('token');
-        await AsyncStorage.removeItem('calculateTimeLetfValues');
-        navigation.navigate('LoginScreen');
+        if (error.toString().includes('Network Error')) {
+          alert('Network Error');
+        } else {
+          alert(error.response.data.message);
+        }
       });
   };
   useEffect(() => {
@@ -201,10 +194,6 @@ const HomeScreen = ({navigation, route}) => {
     medicineName,
     customReminders,
   ) => {
-    setTimesAday(timesADay);
-    setInitialDose(initialDose);
-    setMedicineName(medicineName);
-    setCustomReminders(customReminders);
     let arrayOfTimes = [parseInt(initialDose.substring(0, 2))];
     let nextHour = '';
     let date = new Date();
@@ -256,7 +245,6 @@ const HomeScreen = ({navigation, route}) => {
     }
     if (timeLeft.hours === 0) {
       triggerNotification(medicineName);
-      console.log('sd');
     }
 
     return timeLeft;

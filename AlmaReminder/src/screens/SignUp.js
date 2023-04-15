@@ -38,8 +38,6 @@ const SingUp = ({navigation}) => {
       setUserName({...userName, error: userNameError});
       return;
     } else if (password.value !== confirmPassword.value) {
-      console.log(password);
-      console.log(confirmPassword);
       alert('Password does not match');
     } else {
       addUser();
@@ -66,7 +64,11 @@ const SingUp = ({navigation}) => {
           })
           .catch(error => {
             setIsSpinerOn(false);
-            alert(error.response.data.message);
+            if (error.toString().includes('Network Error')) {
+              alert('Network Error');
+            } else {
+              alert(error.response.data.message);
+            }
           });
       });
     });

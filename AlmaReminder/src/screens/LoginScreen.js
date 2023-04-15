@@ -1,11 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {
-  TouchableOpacity,
-  StyleSheet,
-  View,
-  ScrollView,
-  Linking,
-} from 'react-native';
+import {TouchableOpacity, StyleSheet, View, ScrollView} from 'react-native';
 import {Text} from 'react-native-paper';
 import {theme} from '../theme/theme';
 import {emailValidator} from '../validation/emailValidator';
@@ -60,7 +54,11 @@ const LoginScreen = ({navigation}) => {
       })
       .catch(error => {
         setIsSpinerOn(false);
-        alert(error.response.data.message);
+        if (error.toString().includes('Network Error')) {
+          alert('Network Error');
+        } else {
+          alert(error.response.data.message);
+        }
       });
   };
 

@@ -115,7 +115,11 @@ const AddEditScreen = ({navigation, route}) => {
       })
       .catch(error => {
         setIsSpinerOn(false);
-        alert(error.response.data.message);
+        if (error.toString().includes('Network Error')) {
+          alert('Network Error');
+        } else {
+          alert(error.response.data.message);
+        }
       });
   };
 
@@ -148,7 +152,11 @@ const AddEditScreen = ({navigation, route}) => {
       })
       .catch(error => {
         setIsSpinerOn(false);
-        alert(error.response.data.message);
+        if (error.toString().includes('Network Error')) {
+          alert('Network Error');
+        } else {
+          alert(error.response.data.message);
+        }
       });
   };
 
